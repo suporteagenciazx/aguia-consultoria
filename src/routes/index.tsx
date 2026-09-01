@@ -28,7 +28,7 @@ import execWindow from "@/assets/exec-window.jpg";
 import teamWoman1 from "@/assets/team-woman-1.jpg";
 import teamWoman2 from "@/assets/team-woman-2.jpg";
 import teamWoman3 from "@/assets/team-woman-3.jpg";
-import teamWoman4 from "@/assets/team-woman-4.jpg";
+import teamFernanda from "@/assets/team-fernanda.png";
 import teamAndreLuiz from "@/assets/team-andre-luiz.png";
 import teamMan2 from "@/assets/team-man-2.jpg";
 
@@ -161,7 +161,7 @@ const equipe = [
     chief: false,
   },
   {
-    img: teamWoman4,
+    img: teamFernanda,
     name: "Fernanda Bernadete da Silva",
     short: "Fernanda Bernadete",
     role: "Economista",
