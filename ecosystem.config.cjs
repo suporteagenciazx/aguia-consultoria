@@ -1,6 +1,11 @@
 /**
- * PM2 — uso legado com pasta deploy-vps/.
- * Preferir ecosystem.config.cjs na raiz do repositório (após npm run build).
+ * PM2 — deploy na VPS (sem Docker).
+ * Ajuste `cwd` se o clone estiver em outro caminho.
+ *
+ * Uso:
+ *   npm run build
+ *   pm2 start ecosystem.config.cjs
+ *   pm2 save
  */
 module.exports = {
   apps: [

@@ -21,6 +21,11 @@ npm i
 npm run dev
 ```
 
+## Deploy
+
+- **Docker:** see [DOCKER.md](./DOCKER.md) — `docker compose up -d --build`
+- **VPS (PM2):** `npm run build` + `pm2 start ecosystem.config.cjs` (details in `DOCKER.md` and `deploy-vps/LEIA-ME-DEPLOY.md`)
+
 ## Built with
 
 - TanStack Start
