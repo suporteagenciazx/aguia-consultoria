@@ -17,19 +17,21 @@ import {
   Layers,
   Gauge,
   TrendingUp,
-  BadgeCheck,
   Building2,
+  Globe,
+  Calculator,
+  Search,
 } from "lucide-react";
 
 import logo from "@/assets/logo-aguia.png";
 import heroArch from "@/assets/hero-arch.jpg";
 import aboutGlass from "@/assets/about-glass.jpg";
 import execWindow from "@/assets/exec-window.jpg";
-import teamWoman1 from "@/assets/team-woman-1.jpg";
 import teamWoman2 from "@/assets/team-woman-2.jpg";
 import teamWoman3 from "@/assets/team-woman-3.jpg";
 import teamFernanda from "@/assets/team-fernanda.png";
-import teamAndreLuiz from "@/assets/team-andre-luiz.png";
+import teamAdemirTenfen from "@/assets/team-ademir-tenfen.png";
+import heroAdemir from "@/assets/hero-ademir.png";
 import teamMan2 from "@/assets/team-man-2.jpg";
 
 import { SiteHeader } from "@/components/SiteHeader";
@@ -73,6 +75,15 @@ const essencias = [
     text: "Soluções que fortalecem a independência e o controle.",
   },
   { icon: Shield, title: "Força", text: "Presença, liderança e resultados consistentes." },
+];
+
+const heroTiles = [
+  { icon: BarChart3, pos: "left-0 top-[10%]", delay: "0s" },
+  { icon: Search, pos: "left-0 top-[46%]", delay: "1.6s" },
+  { icon: TrendingUp, pos: "right-0 top-[4%]", delay: "0.8s" },
+  { icon: Globe, pos: "right-0 top-[34%]", delay: "2.4s" },
+  { icon: Calculator, pos: "right-0 top-[64%]", delay: "1.2s" },
+  { icon: Gauge, pos: "left-[6%] bottom-[18%]", delay: "3s" },
 ];
 
 const servicos = [
@@ -121,7 +132,7 @@ const metodologia = [
 
 const equipe = [
   {
-    img: teamAndreLuiz,
+    img: teamAdemirTenfen,
     name: siteConfig.economistaChefe.fullName,
     short: siteConfig.economistaChefe.name,
     role: siteConfig.economistaChefe.role,
@@ -315,7 +326,7 @@ function Index() {
           className="absolute inset-y-0 right-0 h-full w-full object-cover opacity-25 lg:w-[62%] lg:opacity-40"
         />
         <div className="absolute inset-0 bg-linear-to-r from-white via-white/90 to-white/40" />
-        <div className="relative mx-auto grid max-w-[1400px] items-center gap-12 px-5 py-20 lg:grid-cols-[1fr_minmax(0,540px)] lg:px-10 lg:py-24">
+        <div className="relative mx-auto grid max-w-[1400px] items-center gap-12 px-5 py-20 lg:grid-cols-[1fr_minmax(0,600px)] lg:px-10 lg:py-24">
           <div className="max-w-2xl">
             <h1 className="font-display text-4xl leading-[1.12] text-graphite sm:text-5xl">
               Estratégia com visão.
@@ -341,35 +352,33 @@ function Index() {
             </div>
           </div>
 
-          {/* Equipe corporativa em destaque */}
-          <div className="grid grid-cols-3 gap-3 sm:gap-4">
-            {[
-              { img: teamWoman1, alt: "Consultora sênior da Águia Consultoria", up: true },
-              { img: teamAndreLuiz, alt: "Economista chefe da Águia Consultoria", up: false },
-              { img: teamWoman2, alt: "Especialista em controladoria empresarial", up: true },
-            ].map((p, i) => (
-              <figure
+          {/* Economista chefe em destaque */}
+          <div className="relative mx-auto -mb-20 w-full max-w-[600px] self-end px-8 sm:px-14 lg:-mb-24">
+            <img
+              src={heroAdemir}
+              alt={`${siteConfig.economistaChefe.fullName}, ${siteConfig.economistaChefe.role} da Águia Consultoria`}
+              loading="eager"
+              decoding="async"
+              width={683}
+              height={699}
+              className="relative z-10 w-full grayscale transition-all duration-700 hover:grayscale-0"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 78%, transparent 100%)",
+              }}
+            />
+
+            {heroTiles.map(({ icon: Icon, pos, delay }, i) => (
+              <span
                 key={i}
-                className={`media-zoom card-hover border border-border bg-card ${p.up ? "lg:-translate-y-6" : ""}`}
+                aria-hidden="true"
+                className={`float-slow absolute z-20 grid h-11 w-11 place-items-center border border-white/70 bg-white/75 shadow-sm backdrop-blur-md sm:h-14 sm:w-14 ${pos}`}
+                style={{ animationDelay: delay }}
               >
-                <img
-                  src={p.img}
-                  alt={p.alt}
-                  loading="eager"
-                  decoding="async"
-                  width={900}
-                  height={1350}
-                  className="h-44 w-full object-cover object-top grayscale transition-all duration-700 hover:grayscale-0 sm:h-64 lg:h-72"
-                />
-              </figure>
+                <Icon className="h-5 w-5 stroke-[1.25] text-gray-chumbo sm:h-6 sm:w-6" />
+                <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-petroleo" />
+              </span>
             ))}
-            <div className="col-span-3 mt-2 flex items-center gap-3 border border-border bg-background/80 px-5 py-4 backdrop-blur">
-              <BadgeCheck className="h-5 w-5 shrink-0 stroke-[1.25] text-gray-chumbo" />
-              <p className="text-[12px] leading-relaxed text-gray-chumbo">
-                Equipe multidisciplinar de economistas e consultores registrados, dedicada a cada
-                projeto.
-              </p>
-            </div>
           </div>
         </div>
 

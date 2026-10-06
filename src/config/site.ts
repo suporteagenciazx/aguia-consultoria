@@ -19,12 +19,12 @@ export const siteConfig = {
 
   /** Economista Chefe exibido na seção de equipe */
   economistaChefe: {
-    name: "André Luiz",
-    fullName: "André Luiz Koerich",
+    name: "Ademir Tenfen",
+    fullName: "Ademir Tenfen",
     role: "Economista Chefe",
-    specialty: "Acompanhamento e Liberação de Crédito Empresarial",
-    register: "CORECON-SC 3621\nCOFECON 091",
-    bio: "Profissional com ampla experiência em economia aplicada e consultoria estratégica empresarial, atuando no assessoramento econômico de empresas de médio e grande porte.",
+    specialty: "Finanças e Perícia e Avaliação Econômica, Contábil e Atuarial",
+    register: "CORECON/SC nº 1.417\nCOFECON nº 014",
+    bio: "Economista, especialista em Finanças e em Perícia e Avaliação Econômica, Contábil e Atuarial; atua com perícias econômico-financeiras judiciais e extrajudiciais.",
   },
 };
 
