@@ -6,13 +6,13 @@
 
 export const siteConfig = {
   /** Número de WhatsApp usado em TODOS os botões (DDI 55 + DDD + número, só dígitos) */
-  whatsappNumber: "5511920710385",
+  whatsappNumber: "5511997833707",
 
   /** Mensagem que já vem preenchida ao abrir a conversa */
   whatsappMessage: "Olá! Gostaria de falar com um especialista da Águia Consultoria.",
 
   /** Telefone exibido no rodapé e na área de contato */
-  displayPhone: "+55 (11) 92071-0385",
+  displayPhone: "+55 (11) 99783-3707",
 
   /** E-mail de contato */
   email: "contato@aguiaempresarial.com",
