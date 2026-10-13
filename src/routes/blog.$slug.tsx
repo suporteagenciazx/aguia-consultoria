@@ -47,14 +47,14 @@ function BlogPost() {
           <div className="mx-auto max-w-[860px] px-5 py-14 lg:px-10 lg:py-20">
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 text-[12px] text-gray-medio hover:text-graphite"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-[12px] text-gray-chumbo transition-colors hover:border-azul/50 hover:text-azul"
             >
               <ArrowLeft className="h-3.5 w-3.5" /> Voltar para o blog
             </Link>
             <p className="eyebrow mt-8">
               {post.category} · {post.readTime}
             </p>
-            <h1 className="mt-4 font-display text-3xl leading-[1.2] text-graphite sm:text-4xl">
+            <h1 className="mt-4 font-display text-3xl font-light leading-[1.15] text-graphite sm:text-4xl">
               {post.title}
             </h1>
             <p className="mt-5 text-[12px] text-gray-medio">
@@ -67,11 +67,13 @@ function BlogPost() {
           <img
             src={post.cover}
             alt={post.title}
-            className="-mt-0 h-64 w-full border border-border object-cover lg:h-[380px]"
+            className="mt-8 h-64 w-full rounded-3xl border border-border object-cover lg:h-[380px]"
           />
 
           <div className="py-12">
-            <p className="font-display text-xl leading-relaxed text-graphite">{post.excerpt}</p>
+            <p className="border-l-2 border-azul pl-5 font-display text-xl font-light leading-relaxed text-graphite">
+              {post.excerpt}
+            </p>
             <div className="mt-8 space-y-6">
               {post.content.map((p, i) => (
                 <p key={i} className="text-[14px] leading-[1.9] text-gray-chumbo">
@@ -80,7 +82,7 @@ function BlogPost() {
               ))}
             </div>
 
-            <div className="mt-12 border border-border bg-gray-neutro p-8">
+            <div className="corner-marks mt-12 overflow-hidden rounded-3xl border border-border bg-gray-neutro p-8 lg:p-10">
               <h2 className="font-display text-2xl leading-snug text-graphite">
                 Quer aplicar isso na sua empresa?
               </h2>
@@ -105,15 +107,18 @@ function BlogPost() {
           <p className="eyebrow">Continue lendo</p>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {outros.map((p) => (
-              <article key={p.slug} className="card-hover media-zoom border border-border bg-card">
-                <img
-                  src={p.cover}
-                  alt={p.title}
-                  loading="lazy"
-                  className="h-40 w-full object-cover"
-                />
-                <div className="px-6 pb-6 pt-5">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-gray-medio">
+              <article key={p.slug} className="surface card-hover media-zoom">
+                <div className="m-2 overflow-hidden rounded-[22px]">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-40 w-full object-cover"
+                  />
+                </div>
+                <div className="px-6 pb-6 pt-4">
+                  <p className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-gray-medio">
+                    <span className="h-1.5 w-1.5 rounded-full bg-azul" aria-hidden="true" />
                     {p.category}
                   </p>
                   <h3 className="mt-3 font-display text-base leading-snug text-graphite">
@@ -122,7 +127,7 @@ function BlogPost() {
                   <Link
                     to="/blog/$slug"
                     params={{ slug: p.slug }}
-                    className="mt-4 inline-flex items-center gap-2 border-b border-graphite pb-0.5 text-[12px] text-graphite"
+                    className="link-arrow mt-4"
                   >
                     Ler artigo <ArrowRight className="h-3.5 w-3.5" />
                   </Link>

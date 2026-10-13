@@ -35,14 +35,16 @@ function BlogIndex() {
     <div className="page-in min-h-screen bg-background">
       <SiteHeader />
 
-      <section className="border-b border-border bg-gray-neutro">
-        <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-20">
+      <section className="relative overflow-hidden border-b border-border bg-gray-neutro">
+        <div aria-hidden="true" className="bg-grid absolute inset-0" />
+        <div aria-hidden="true" className="blue-glow absolute -left-32 top-0 h-[340px] w-[340px]" />
+        <div className="relative mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-20">
           <p className="eyebrow">Insights</p>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.15] text-graphite">
+          <h1 className="mt-5 max-w-3xl font-display text-4xl font-light leading-[1.1] text-graphite sm:text-5xl">
             Conteúdo que ajuda empresas a{" "}
             <span className="text-gray-medio">decidir com clareza.</span>
           </h1>
-          <div className="my-7 h-px w-24 bg-gray-claro" />
+          <div className="accent-line my-8 w-24" />
           <p className="max-w-xl text-sm leading-relaxed text-gray-chumbo">
             Análises, métodos e casos empresariais sobre crédito, governança, controladoria e
             estratégia — escritos pela equipe da Águia Consultoria.
@@ -53,7 +55,7 @@ function BlogIndex() {
       {/* Destaque */}
       <section className="border-b border-border bg-background">
         <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-16 lg:grid-cols-2 lg:px-10">
-          <div className="media-zoom border border-border">
+          <div className="media-zoom corner-marks overflow-hidden rounded-3xl border border-border">
             <img
               src={destaque.cover}
               alt={destaque.title}
@@ -87,15 +89,18 @@ function BlogIndex() {
         <div className="mx-auto max-w-[1400px] px-5 py-16 lg:px-10 lg:py-20">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {restantes.map((p) => (
-              <article key={p.slug} className="card-hover media-zoom border border-border bg-card">
-                <img
-                  src={p.cover}
-                  alt={p.title}
-                  loading="lazy"
-                  className="h-44 w-full object-cover"
-                />
-                <div className="px-6 pb-7 pt-6">
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-gray-medio">
+              <article key={p.slug} className="surface card-hover media-zoom">
+                <div className="m-2 overflow-hidden rounded-[22px]">
+                  <img
+                    src={p.cover}
+                    alt={p.title}
+                    loading="lazy"
+                    className="h-44 w-full object-cover"
+                  />
+                </div>
+                <div className="px-6 pb-7 pt-4">
+                  <p className="flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-gray-medio">
+                    <span className="h-1.5 w-1.5 rounded-full bg-azul" aria-hidden="true" />
                     {p.category} · {p.readTime}
                   </p>
                   <h3 className="mt-3 font-display text-lg leading-snug text-graphite">
@@ -105,7 +110,7 @@ function BlogIndex() {
                   <Link
                     to="/blog/$slug"
                     params={{ slug: p.slug }}
-                    className="mt-5 inline-flex items-center gap-2 border-b border-graphite pb-0.5 text-[12px] text-graphite"
+                    className="link-arrow mt-5"
                   >
                     Ler artigo <ArrowRight className="h-3.5 w-3.5" />
                   </Link>

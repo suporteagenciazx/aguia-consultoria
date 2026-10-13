@@ -17,12 +17,15 @@ const solucoes = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-graphite text-white">
+    <footer className="relative isolate overflow-hidden bg-graphite text-white">
+      <div aria-hidden="true" className="bg-grid-dark absolute inset-0 -z-10" />
+      <div aria-hidden="true" className="blue-glow absolute -right-40 -top-40 -z-10 h-[420px] w-[420px]" />
       {/* Faixa WhatsApp */}
-      <div className="border-b border-white/10">
-        <div className="mx-auto flex max-w-[1400px] flex-col gap-6 px-5 py-10 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+      <div className="px-5 pt-10 lg:px-10">
+        <div className="mx-auto flex max-w-[1400px] flex-col gap-6 rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm lg:flex-row lg:items-center lg:justify-between lg:p-8">
           <div className="flex items-start gap-4">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25">
+            <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-2xl border border-white/20">
+              <span className="blue-dot absolute -right-0.5 -top-0.5" aria-hidden="true" />
               <svg viewBox="0 0 32 32" className="h-5 w-5 fill-white/80" aria-hidden="true">
                 <path d="M16.001 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.47 1.74 6.41L3.2 28.8l6.55-1.71a12.74 12.74 0 0 0 6.25 1.62h.01c7.06 0 12.8-5.74 12.8-12.8s-5.75-12.71-12.81-12.71Zm0 23.03h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.89 1.02 1.04-3.79-.25-.39a10.55 10.55 0 0 1-1.62-5.64c0-5.87 4.78-10.64 10.65-10.64 2.84 0 5.51 1.11 7.52 3.12a10.56 10.56 0 0 1 3.11 7.53c0 5.87-4.78 10.5-10.76 10.5Zm5.84-7.87c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.6-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.24 3.42 5.43 4.79.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z" />
               </svg>
@@ -38,7 +41,7 @@ export function SiteFooter() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-base wa-btn w-full shrink-0 rounded-full lg:w-auto"
+            className="btn-base wa-btn w-full shrink-0 lg:w-auto"
           >
             <svg viewBox="0 0 32 32" className="h-4 w-4 shrink-0 fill-current" aria-hidden="true">
               <path d="M16.001 3.2c-7.06 0-12.8 5.74-12.8 12.8 0 2.26.6 4.47 1.74 6.41L3.2 28.8l6.55-1.71a12.74 12.74 0 0 0 6.25 1.62h.01c7.06 0 12.8-5.74 12.8-12.8s-5.75-12.71-12.81-12.71Zm0 23.03h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-3.89 1.02 1.04-3.79-.25-.39a10.55 10.55 0 0 1-1.62-5.64c0-5.87 4.78-10.64 10.65-10.64 2.84 0 5.51 1.11 7.52 3.12a10.56 10.56 0 0 1 3.11 7.53c0 5.87-4.78 10.5-10.76 10.5Zm5.84-7.87c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.6-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.08 1.3 3.29c.16.21 2.24 3.42 5.43 4.79.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.15-1.52.27-.75.27-1.39.19-1.52-.08-.13-.29-.21-.61-.37Z" />
@@ -70,7 +73,7 @@ export function SiteFooter() {
             <br />
             Resultados com propósito.
           </p>
-          <div className="mt-7 inline-flex flex-col gap-2 rounded-md bg-white/95 px-6 py-5">
+          <div className="mt-7 inline-flex flex-col gap-2 rounded-2xl bg-white/95 px-6 py-5">
             <img
               src={cofecon}
               alt="Selo COFECON — Conselho Federal de Economia"
@@ -84,11 +87,14 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[10px] tracking-[0.22em] uppercase text-white/40">Navegação</p>
+          <p className="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-white/40">
+            <span className="h-1.5 w-1.5 rounded-full bg-azul" aria-hidden="true" />
+            Navegação
+          </p>
           <ul className="mt-5 space-y-2.5 text-[13px] text-white/65">
             {nav.map((i) => (
               <li key={i.label}>
-                <a href={i.href} className="hover:text-white">
+                <a href={i.href} className="transition-colors hover:text-azul-claro">
                   {i.label}
                 </a>
               </li>
@@ -97,11 +103,14 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[10px] tracking-[0.22em] uppercase text-white/40">Soluções</p>
+          <p className="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-white/40">
+            <span className="h-1.5 w-1.5 rounded-full bg-azul" aria-hidden="true" />
+            Soluções
+          </p>
           <ul className="mt-5 space-y-2.5 text-[13px] text-white/65">
             {solucoes.map((s) => (
               <li key={s}>
-                <a href="/#servicos" className="hover:text-white">
+                <a href="/#servicos" className="transition-colors hover:text-azul-claro">
                   {s}
                 </a>
               </li>
@@ -110,7 +119,10 @@ export function SiteFooter() {
         </div>
 
         <div>
-          <p className="text-[10px] tracking-[0.22em] uppercase text-white/40">Contato</p>
+          <p className="flex items-center gap-2 text-[10px] tracking-[0.22em] uppercase text-white/40">
+            <span className="h-1.5 w-1.5 rounded-full bg-azul" aria-hidden="true" />
+            Contato
+          </p>
           <ul className="mt-5 space-y-3 text-[13px] text-white/65">
             <li className="flex items-center gap-3">
               <Phone className="h-4 w-4 text-white/40" /> {siteConfig.displayPhone}
@@ -153,7 +165,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-6 lg:px-10">
+        <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 pb-28 pt-6 md:pb-6 lg:px-10">
           <p className="text-[11px] text-white/45">
             © 2024 Águia Consultoria. Todos os direitos reservados.
           </p>
@@ -161,7 +173,7 @@ export function SiteFooter() {
             to="/"
             hash="home"
             aria-label="Voltar ao topo"
-            className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/25 text-white/70 hover:text-white"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-azul hover:text-white"
           >
             <ArrowUp className="h-4 w-4" />
           </Link>

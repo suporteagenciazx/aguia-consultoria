@@ -24,8 +24,9 @@ export function SiteHeader() {
       {/* Top bar */}
       <div className="bg-graphite text-white">
         <div className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-2.5 lg:px-10">
-          <p className="truncate text-[10px] tracking-[0.2em] uppercase text-white/70">
-            Estratégia com visão. Resultados com propósito.
+          <p className="flex min-w-0 items-center gap-2.5 text-[10px] tracking-[0.2em] uppercase text-white/70">
+            <span className="blue-dot shrink-0" aria-hidden="true" />
+            <span className="truncate">Estratégia com visão. Resultados com propósito.</span>
           </p>
           <div className="hidden items-center gap-5 text-[10px] tracking-[0.2em] uppercase text-white/70 md:flex">
             <a href="/#contato" className="hover:text-white">
@@ -48,7 +49,11 @@ export function SiteHeader() {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-linear-to-r from-transparent via-azul/60 to-transparent"
+        />
         <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-4 lg:flex lg:justify-between lg:px-10">
           <Link to="/" className="flex min-w-0 items-center">
             <img
@@ -86,10 +91,10 @@ export function SiteHeader() {
             aria-label="Abrir menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
-            className="menu-toggle shrink-0 p-2 text-graphite lg:hidden"
+            className="menu-toggle grid h-11 w-11 shrink-0 place-items-center rounded-full border border-border text-graphite transition-colors hover:border-azul/50 lg:hidden"
             data-open={menuOpen}
           >
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
 
@@ -101,9 +106,10 @@ export function SiteHeader() {
                 href={i.href}
                 onClick={() => setMenuOpen(false)}
                 style={{ "--stagger": `${60 + idx * 55}ms` } as React.CSSProperties}
-                className="menu-item block border-b border-border py-3 text-sm text-gray-chumbo"
+                className="menu-item flex items-center justify-between rounded-xl px-3 py-3 text-sm text-gray-chumbo transition-colors hover:bg-gray-neutro hover:text-graphite"
               >
                 {i.label}
+                <span className="h-1.5 w-1.5 rounded-full bg-azul/70" aria-hidden="true" />
               </a>
             ))}
             <a
