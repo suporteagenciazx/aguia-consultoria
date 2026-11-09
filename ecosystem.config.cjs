@@ -1,6 +1,6 @@
 /**
  * PM2 — deploy na VPS (sem Docker).
- * Ajuste `cwd` se o clone estiver em outro caminho.
+ * Domínio: consultoriaaguia.com
  *
  * Uso:
  *   npm run build
@@ -12,7 +12,7 @@ module.exports = {
     {
       name: "aguia-consultoria",
       script: "server/index.mjs",
-      cwd: "/www/wwwroot/aguiaempresarial.com/.output",
+      cwd: "/www/wwwroot/consultoriaaguia.com/.output",
       env: {
         NODE_ENV: "production",
         PORT: 3000,

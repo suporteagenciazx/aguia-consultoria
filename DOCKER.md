@@ -61,7 +61,7 @@ Exemplo Nginx:
 ```nginx
 server {
     listen 80;
-    server_name aguiaempresarial.com www.aguiaempresarial.com;
+    server_name consultoriaaguia.com www.consultoriaaguia.com;
 
     location / {
         proxy_pass http://127.0.0.1:3000;

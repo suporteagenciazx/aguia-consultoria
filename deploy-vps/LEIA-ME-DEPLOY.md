@@ -7,7 +7,7 @@ Preferência atual: **Docker** → veja [`DOCKER.md`](../DOCKER.md) na raiz do r
 Na VPS, com o repositório clonado:
 
 ```bash
-cd /www/wwwroot/aguiaempresarial.com   # ajuste o caminho
+cd /www/wwwroot/consultoriaaguia.com
 git pull
 npm ci
 npm run build
@@ -15,7 +15,7 @@ pm2 start ecosystem.config.cjs         # arquivo na raiz do repo
 pm2 save
 ```
 
-Ajuste `cwd` em `ecosystem.config.cjs` se o projeto não estiver em `/www/wwwroot/aguiaempresarial.com`.
+Ajuste `cwd` em `ecosystem.config.cjs` se o projeto não estiver em `/www/wwwroot/consultoriaaguia.com`.
 
 Reverse proxy (aaPanel ou Nginx) → `http://127.0.0.1:3000`.
 
@@ -38,7 +38,7 @@ Esta pasta `deploy-vps/` é um pacote de referência; o fluxo Git + build ou Doc
 ```nginx
 server {
     listen 80;
-    server_name aguiaempresarial.com www.aguiaempresarial.com;
+    server_name consultoriaaguia.com www.consultoriaaguia.com;
 
     location / {
         proxy_pass http://127.0.0.1:3000;
