@@ -51,10 +51,30 @@ PORT=8080
 
 ## VPS + Nginx / aaPanel
 
-1. Clone o repositório na VPS.
-2. `docker compose up -d --build`
-3. Reverse proxy para `http://127.0.0.1:3000` (aaPanel → Reverse proxy, ou Nginx).
-4. DNS Cloudflare → IP da VPS; SSL **Full** / **Full (strict)**.
+Pasta padrão no aaPanel: `/www/wwwroot/site.consultoriaaguia.com`  
+Domínio público: `consultoriaaguia.com` / `www.consultoriaaguia.com`
+
+### Subir com Docker (pare o PM2 antes)
+
+```bash
+pm2 delete aguia-consultoria 2>/dev/null
+pm2 save
+
+cd /www/wwwroot/site.consultoriaaguia.com
+git fetch origin
+git checkout main
+git reset --hard origin/main
+
+docker compose up -d --build --force-recreate
+docker compose ps
+curl -sI http://127.0.0.1:3000 | head -5
+```
+
+### Reverse proxy (aaPanel)
+
+1. Site do domínio **consultoriaaguia.com** (não use `site.` no DNS).
+2. Reverse proxy → `http://127.0.0.1:3000`.
+3. Não sirva a pasta do projeto como site estático.
 
 Exemplo Nginx:
 
@@ -74,11 +94,20 @@ server {
 }
 ```
 
+### SSL (Let’s Encrypt + Cloudflare)
+
+1. Cloudflare DNS: nuvem **cinza (DNS only)** enquanto emite o certificado.
+2. aaPanel → SSL → Let’s Encrypt para **`consultoriaaguia.com`** e **`www.consultoriaaguia.com`** (não use `site.consultoriaaguia.com`).
+3. Se o proxy para a 3000 bloquear o ACME, exclua `/.well-known` do reverse proxy ou use validação DNS.
+4. Cloudflare → SSL/TLS → **Full** (ou **Full strict** depois que o cert estiver ok).
+5. Volte a nuvem **laranja** e faça **Purge Everything**.
+
 ## Atualizar o site
 
 ```bash
+cd /www/wwwroot/site.consultoriaaguia.com
 git pull
-docker compose up -d --build
+docker compose up -d --build --force-recreate
 ```
 
 Se usar Cloudflare com proxy laranja, faça **Purge Cache** após mudanças em imagens/CSS/JS.
