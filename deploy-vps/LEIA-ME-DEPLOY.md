@@ -7,7 +7,7 @@ Preferência atual: **Docker** → veja [`DOCKER.md`](../DOCKER.md) na raiz do r
 Na VPS, com o repositório clonado:
 
 ```bash
-cd /www/wwwroot/consultoriaaguia.com
+cd /www/wwwroot/site.consultoriaaguia.com
 git pull
 npm ci
 npm run build
@@ -15,7 +15,7 @@ pm2 start ecosystem.config.cjs         # arquivo na raiz do repo
 pm2 save
 ```
 
-Ajuste `cwd` em `ecosystem.config.cjs` se o projeto não estiver em `/www/wwwroot/consultoriaaguia.com`.
+Ajuste `cwd` em `ecosystem.config.cjs` se o projeto não estiver em `/www/wwwroot/site.consultoriaaguia.com`.
 
 Reverse proxy (aaPanel ou Nginx) → `http://127.0.0.1:3000`.
 

@@ -1,5 +1,6 @@
 /**
  * PM2 — deploy na VPS (sem Docker).
+ * Pasta aaPanel: site.consultoriaaguia.com
  * Domínio: consultoriaaguia.com
  *
  * Uso:
@@ -12,7 +13,7 @@ module.exports = {
     {
       name: "aguia-consultoria",
       script: "server/index.mjs",
-      cwd: "/www/wwwroot/consultoriaaguia.com/.output",
+      cwd: "/www/wwwroot/site.consultoriaaguia.com/.output",
       env: {
         NODE_ENV: "production",
         PORT: 3000,
